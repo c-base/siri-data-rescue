@@ -7,6 +7,7 @@
 
 {% block content %}
 
+    {#{{ block('info') }}#}
 
     {% for file in storageFiles if storageId %}
         {{ block(file.blockType) }}
@@ -14,6 +15,22 @@
         <li><em>Keine Dateien für dieses Speichermedium gefunden</em></li>
     {% endfor %}
 
+{% endblock %}
+
+{% block info %}
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title">Info</h3>
+        </div>
+        <ul class="list-group">
+            {% for key, info in storageInfo %}
+                <li class="list-group-item">
+                    <span class="badge">{{ info }}</span>
+                    {{ key }}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
 {% endblock %}
 
 {% block jumbo %}

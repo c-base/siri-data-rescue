@@ -46,15 +46,23 @@ class Storage
         /** @var \SPLFileInfo $youngestFile */
         $youngestFile = end($files);
 
+        $sorages = $this
+            ->createFinder()
+            ->directories()
+            ->in($this->path)
+            ->depth(0)
+            ;
 
+        $directories = $this
+            ->createFinder()
+            ->directories()
+            ->in($this->path)
+            ->sortByModifiedTime()
+            ;
 
        return [
-            'num_storage' => $this
-                    ->createFinder()
-                    ->directories()
-                    ->in($this->path)
-                    ->depth(0)
-                    ->count(),
+            'num_storage'  => $sorages->count(),
+            'directories_in_storages' => $directories->count() - $sorages->count(),
             'num_files'    => $files->count(),
             'oldest'       => $oldestFile->getFilename(),
             'oldest_date'  => date('Y-m-d H:i:s', $oldestFile->getMTime()),

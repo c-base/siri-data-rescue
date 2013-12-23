@@ -24,8 +24,15 @@ class Directory
 
     public function countFiles()
     {
-        $iterator = new \GlobIterator($this->directory->getPathname().'/*.*');
-        return $iterator->count();
+
+        $iterator = new \FilesystemIterator($this->directory->getPathname(), \FilesystemIterator::SKIP_DOTS);
+        return iterator_count($iterator);
+    }
+
+    public function countSubdirectories()
+    {
+        $iterator = new \RecursiveDirectoryIterator($this->directory->getPathname());
+        return iterator_count($iterator->getChildren(false));
     }
 }
  
