@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% block head %}
+        <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="/assets/css/bootstrap.css"/>
+        <link rel="stylesheet" href="/assets/css/siri.css"/>
+        <title>{% block title %}{% endblock %} - SIRI Daten Rettung @ c-base</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+    {% endblock %}
+</head>
+<body>
+{% block navbar %}
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a href="/" class="navbar-brand">c-base - SIRI Daten Rettung</a>
+            </div>
+            <div class="navbar-collapse collapse" id="navbar-main">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="/siri-sonde">u:ber siri</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+<div class="container">
+
+    <div class="col-lg-12">{% block jumbo %}{% endblock %}</div>
+    <div class="col-lg-12">{% block content %}{% endblock %}</div>
+
+
+    <!--footer>
+        <div class="row">
+            <div class="col-lg-12">
+
+                <ul class="list-unstyled">
+                    {#<li class="pull-right"><a href="#top">Back to top</a></li>#}
+                </ul>
+                <p>Copyleft 2013 by <a href="http://c-base.org">c-base.org</a></p>
+                <p>Template Made by <a href="http://thomaspark.me">Thomas Park</a>. Contact him at <a href="mailto:hello@thomaspark.me">hello@thomaspark.me</a>.</p>
+                <p>Based on <a href="http://getbootstrap.com">Bootstrap</a>. Icons from <a
+                            href="http://fortawesome.github.io/Font-Awesome/">Font Awesome</a>. Web fonts from <a
+                            href="http://www.google.com/webfonts">Google</a>. Favicon by <a
+                            href="https://twitter.com/geraldhiller">Gerald Hiller</a>.</p>
+
+            </div>
+        </div>
+
+    </footer-->
+</div>
+</body>
+</html>

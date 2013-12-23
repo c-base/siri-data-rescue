@@ -1,0 +1,23 @@
+{
+    "name": "easybiblabs/silex-skeleton",
+    "description": "Simple project setup with the silex skeleton",
+    "license": "MIT",
+    "autoload": {
+        "psr-0": {
+            "": "src/"
+        }
+    },
+    "require": {
+        "silex/silex": "~1.1",
+        "twig/twig": "1.15.*@dev",
+        "symfony/twig-bridge": "2.5.*@dev",
+        "symfony/console": "2.5.*@dev",
+        "symfony/finder": "2.5.*@dev"
+    },
+    "require-dev": {
+        "symfony/browser-kit": "2.3.*",
+        "phpmd/phpmd": "1.4.*",
+        "squizlabs/php_codesniffer": "1.*",
+        "phpunit/phpunit": "3.7.*"
+    }
+}

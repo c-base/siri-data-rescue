@@ -1,0 +1,53 @@
+{% extends "base.twig" %}
+
+{% block title %}
+    {% if storageId %}Speicher {{ storageId }}{% else %}Ich bin SIrI{% endif %}
+{% endblock %}
+
+
+{% block content %}
+
+
+    {% for file in storageFiles if storageId %}
+        {{ block(file.blockType) }}
+    {% else %}
+        <li><em>Keine Dateien für dieses Speichermedium gefunden</em></li>
+    {% endfor %}
+
+{% endblock %}
+
+{% block jumbo %}
+<div class="page-header" id="banner">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1>{{ block('title') }}</h1>
+            <p class="lead"></p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block text %}
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{ file.getRelativePathname }}</h3>
+        </div>
+        <div class="panel-body">
+            {{ file.getContents }}
+        </div>
+    </div>
+
+{% endblock %}
+
+
+{% block image %}
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{ file.getRelativePathname }}</h3>
+        </div>
+        <div class="panel-body">
+            {#{{ file.getContents }}#}
+            <img src="data:{{ file.getMimeType }};base64,{{ file.getContentsBase64 }}" alt=""/>
+        </div>
+    </div>
+{% endblock %}
