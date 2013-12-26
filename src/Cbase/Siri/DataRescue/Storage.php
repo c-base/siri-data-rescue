@@ -40,7 +40,8 @@ class Storage
             ->sortByModifiedTime()
         ;
 
-        $files = new \ArrayIterator(iterator_to_array($files, false));
+        $iterator = iterator_to_array($files, false);
+        $files = new \ArrayIterator($iterator);
 
         /** @var \SPLFileInfo $oldestFile */
         $oldestFile = $files->current();
