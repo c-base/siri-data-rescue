@@ -37,19 +37,19 @@ class Storage
             ->files()
             ->in($this->path)
             ->size($size)
-            ->sortByModifiedTime()
+//            ->sortByModifiedTime()
         ;
 
-        $arrayFromIterator = iterator_to_array($files, false);
-        $files = array_reverse($arrayFromIterator);
+//        $arrayFromIterator = iterator_to_array($files, false);
+//        $files = array_reverse($arrayFromIterator);
 //        $files = new \ArrayIterator($arrayFromIterator);
 
-        /** @var \SPLFileInfo $oldestFile */
-        $oldestFile = $arrayFromIterator[0];
-        /** @var \SPLFileInfo $youngestFile */
-        $youngestFile = $files[0];
+//        /** @var \SPLFileInfo $oldestFile */
+//        $oldestFile = $arrayFromIterator[0];
+//        /** @var \SPLFileInfo $youngestFile */
+//        $youngestFile = $files[0];
 
-        $sorages = $this
+        $storages = $this
             ->createFinder()
             ->directories()
             ->in($this->path)
@@ -60,17 +60,17 @@ class Storage
             ->createFinder()
             ->directories()
             ->in($this->path)
-            ->sortByModifiedTime()
+//            ->sortByModifiedTime()
             ;
 
        return [
-            'num_storage'  => $sorages->count(),
-            'directories_in_storages' => $directories->count() - $sorages->count(),
+            'num_storage'  => $storages->count(),
+            'directories_in_storages' => $directories->count() - $storages->count(),
             'num_files'    => count($files),
-            'oldest'       => $oldestFile->getFilename(),
-            'oldest_date'  => date('Y-m-d H:i:s', $oldestFile->getMTime()),
-            'youngest'     => $youngestFile->getFilename(),
-           'youngest_date' => date('Y-m-d H:i:s', $youngestFile->getMTime())
+//            'oldest'       => $oldestFile->getFilename(),
+//            'oldest_date'  => date('Y-m-d H:i:s', $oldestFile->getMTime()),
+//            'youngest'     => $youngestFile->getFilename(),
+//           'youngest_date' => date('Y-m-d H:i:s', $youngestFile->getMTime())
         ];
     }
 
