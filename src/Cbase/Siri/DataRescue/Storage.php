@@ -40,13 +40,14 @@ class Storage
             ->sortByModifiedTime()
         ;
 
-        $iterator = iterator_to_array($files, false);
-        $files = new \ArrayIterator($iterator);
+        $arrayFromIterator = iterator_to_array($files, false);
+        $files = array_reverse($arrayFromIterator);
+//        $files = new \ArrayIterator($arrayFromIterator);
 
         /** @var \SPLFileInfo $oldestFile */
-        $oldestFile = $files->current();
+        $oldestFile = $arrayFromIterator[0];
         /** @var \SPLFileInfo $youngestFile */
-        $youngestFile = end($files);
+        $youngestFile = $files[0];
 
         $sorages = $this
             ->createFinder()
@@ -65,7 +66,7 @@ class Storage
        return [
             'num_storage'  => $sorages->count(),
             'directories_in_storages' => $directories->count() - $sorages->count(),
-            'num_files'    => $files->count(),
+            'num_files'    => count($files),
             'oldest'       => $oldestFile->getFilename(),
             'oldest_date'  => date('Y-m-d H:i:s', $oldestFile->getMTime()),
             'youngest'     => $youngestFile->getFilename(),
