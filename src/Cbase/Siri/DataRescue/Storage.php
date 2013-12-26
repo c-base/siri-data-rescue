@@ -30,12 +30,13 @@ class Storage
         return $finder();
     }
 
-    public function getInfo()
+    public function getInfo($size = '<= 5M')
     {
         $files = $this
             ->createFinder()
             ->files()
             ->in($this->path)
+            ->size($size)
             ->sortByModifiedTime()
         ;
 
