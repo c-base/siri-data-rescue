@@ -26,7 +26,8 @@ class DataRescueServiceProvider implements \Silex\ServiceProviderInterface
             return new \Cbase\Siri\Siri;
         });
 
-        $app['siri.storage.path'] = $app['root'] . '/cache/data';
+        //$app['siri.storage.path'] = $app['root'] . '/cache/data';
+        $app['siri.storage.path'] = '/dump';
 
         $app['siri.storage.id'] = $app->share(
             function () use ($app) {
