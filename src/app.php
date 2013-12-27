@@ -40,6 +40,11 @@ $app->get('/speicher/{storageId}', function ($storageId) use ($app) {
         ]);
 });
 
+$app->get('/anleitung', function () use ($app) {
+        return $app['twig']->render('anleitung.twig');
+    }
+);
+
 $app->get('/siri-sonde', function () use ($app) {
         return $app['twig']->render('info.twig');
     }
