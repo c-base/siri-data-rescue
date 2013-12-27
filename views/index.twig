@@ -4,6 +4,11 @@
     SIrI datenrettung fu:r ru:ckreise
 {% endblock %}
 
+ {% block head %}
+     {{ parent() }}
+     <meta http-equiv="refresh" content="50">
+ {% endblock %}
+
 {% block jumbo %}
     <p>&nbsp;</p>
     <div class="jumbotron">
