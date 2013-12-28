@@ -10,6 +10,7 @@ $app->register(new \Cbase\Siri\DataRescue\DataRescueServiceProvider);
 $app->register(new \Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => $app['root'].'/views',
 ));
+$app->register(new \Nicl\Silex\MarkdownServiceProvider());
 
 $app->get('/', function () use ($app) {
     return $app['twig']->render(
