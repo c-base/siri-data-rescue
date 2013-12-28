@@ -24,20 +24,17 @@ $app->get('/', function () use ($app) {
         ]
     );
 });
-$app->get('/storage/{storageId}', function ($storageId) use ($app) {
-    return $app['twig']->render(
-        'show.twig',
-        [
-            'storageId'    => $storageId,
-            'storageFiles' => $app['siri.storage']->getFiles($storageId),
-        ]);
-});
+
 $app->get('/speicher/{storageId}', function ($storageId) use ($app) {
+
+    $webpath = sprintf('%s/%s/', $app['siri.storage.webpath'], $storageId);
+
     return $app['twig']->render(
         'show.twig',
         [
             'storageId'    => $storageId,
             'storageFiles' => $app['siri.storage']->getFiles($storageId),
+            'webpath'      => $webpath,
         ]);
 });
 

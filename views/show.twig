@@ -68,3 +68,14 @@
         </div>
     </div>
 {% endblock %}
+
+{% block link %}
+    <div class="panel panel-default">
+        {#<div class="panel-heading">#}
+            {#<h3 class="panel-title">{{ file.getRelativePathname }}</h3>#}
+        {#</div>#}
+        <div class="panel-body">
+            <a href="{{ webpath }}{{ file.getRelativePathname }}">{{ file.getRelativePathname }}</a>
+        </div>
+    </div>
+{% endblock %}
