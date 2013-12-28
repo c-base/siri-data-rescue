@@ -27,6 +27,7 @@ class DataRescueServiceProvider implements \Silex\ServiceProviderInterface
         });
 
         $app['siri.storage.path'] = '/dump';
+        $app['siri.storage.webpath'] = '/data/dump';
 
         $app['siri.storage.id'] = $app->share(
             function () use ($app) {
