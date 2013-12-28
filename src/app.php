@@ -49,4 +49,8 @@ $app->get('/siri-sonde', function () use ($app) {
         return $app['twig']->render('info.twig');
     }
 );
+$app->get('/status', function () use ($app) {
+        return $app['twig']->render('status.twig');
+    }
+);
 return $app;
