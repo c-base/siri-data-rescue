@@ -43,7 +43,12 @@ class File
 
     public function getBlockType()
     {
-        return strtolower(reset(explode('/', $this->mimeType)));
+        $blockType = strtolower(reset(explode('/', $this->mimeType)));
+
+        if (in_array($blockType, ['image', 'text'])) {
+            return $blockType;
+        }
+        return 'link';
     }
 
 }
