@@ -48,7 +48,19 @@ $app->get('/siri-sonde', function () use ($app) {
     }
 );
 $app->get('/status', function () use ($app) {
-        return $app['twig']->render('status.twig');
+        $content = 0;
+        $filename = "/tmp/percent.txt";
+        $file = fopen($filename, "r");
+        if ($file) {
+            $content = intval(fread($file,filesize($filename)));
+            fclose($file);
+        }
+        
+        return $app['twig']->render(
+            'status.twig',
+            [
+                'percentage' => $content,
+            ]);
     }
 );
 return $app;

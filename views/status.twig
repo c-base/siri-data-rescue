@@ -1,11 +1,16 @@
 {% extends "base_blank.twig" %}
 
+{% block meta %}
+    <meta http-equiv="refresh" content="1">
+{% endblock %}
+
 {% block content %}
 
     <h1>Status</h1>
+    Dateien werden hochgeladen / file are being uploaded...
     <div class="progress progress-striped active">
-        <div class="progress-bar"  role="progressbar" aria-valuenow="42" aria-valuemin="0" aria-valuemax="100" style="width: 42%">
-            <span class="sr-only">42% Complete</span>
+        <div class="progress-bar"  role="progressbar" aria-valuenow="{{ percentage }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ percentage }}%">
+            <span class="sr-only">{{ percentage }}% complete</span>
         </div>
     </div>
 {% endblock %}
