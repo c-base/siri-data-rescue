@@ -1,16 +1,33 @@
-{% extends "base_blank.twig" %}
+{% extends "base.twig" %}
 
-{% block meta %}
-    <meta http-equiv="refresh" content="1">
+ {% block head %}
+     {{ parent() }}
+     <meta http-equiv="refresh" content="1">
+ {% endblock %}
+
+{% block jumbo %}
+    <p>&nbsp;</p>
+    <div class="jumbotron">
+        <h1>siri daten rettung</h1>
+        <p>datenrettungsmodul der raumstation c-base</p>
+    </div>
 {% endblock %}
 
 {% block content %}
-
-    <h1>Status</h1>
-    Dateien werden hochgeladen / file are being uploaded...
-    <div class="progress progress-striped active">
-        <div class="progress-bar"  role="progressbar" aria-valuenow="{{ percentage }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ percentage }}%">
-            <span class="sr-only">{{ percentage }}% complete</span>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">datenrettung läuft</h3>
+                </div>
+                <div class="panel-body">
+		    Dateien werden hochgeladen / file are being uploaded...<br /><br />
+		    <div class="progress progress-striped active">
+			<div class="progress-bar"  role="progressbar" aria-valuenow="{{ percentage }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ percentage }}%">
+			    <span class="sr-only">{{ percentage }}% complete</span>
+			</div>
+		    </div>
+                </div>
+            </div>
         </div>
-    </div>
 {% endblock %}
